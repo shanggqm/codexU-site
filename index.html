@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#f5f5f7" />
+    <meta
+      name="description"
+      content="CodexU 是一款本地优先的 macOS 菜单栏工具，让 Codex 与 Claude Code 的额度、Token 和任务状态一目了然。"
+    />
+    <meta property="og:title" content="CodexU — 让每一次 Codex 使用，心里有数" />
+    <meta
+      property="og:description"
+      content="原生 macOS 菜单栏工具。本地读取、隐私优先，清楚掌握额度、Token 和今日任务。"
+    />
+    <meta property="og:url" content="https://shanggqm.github.io/codexU-site/" />
+    <meta property="og:image" content="https://shanggqm.github.io/codexU-site/assets/codexu/screenshot-overview.png" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <title>CodexU — Codex 用量，一眼看清</title>
+    <link rel="canonical" href="https://shanggqm.github.io/codexU-site/" />
+    <link rel="icon" type="image/png" href="./assets/codexu/app-icon.png" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">跳到主要内容</a>
+
+    <header class="site-header" data-header>
+      <nav class="nav-shell" aria-label="主导航">
+        <a class="brand" href="#top" aria-label="CodexU 首页">
+          <img src="./assets/codexu/app-icon.png" alt="" width="32" height="32" />
+          <span>codexU</span>
+        </a>
+        <div class="nav-links" aria-label="页面章节">
+          <a href="#overview">概览</a>
+          <a href="#features">功能</a>
+          <a href="#value">羊毛进度</a>
+          <a href="#privacy">隐私</a>
+        </div>
+        <a
+          class="nav-cta"
+          href="https://github.com/shanggqm/codexU/releases/latest"
+          target="_blank"
+          rel="noreferrer"
+        >
+          下载
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.2 3.4h7.4v7.4M12.4 3.6 4 12" /></svg>
+        </a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <canvas id="ambient-canvas" aria-hidden="true"></canvas>
+        <div class="hero-aura aura-one" data-parallax="-0.08"></div>
+        <div class="hero-aura aura-two" data-parallax="0.12"></div>
+
+        <div class="hero-copy reveal is-visible">
+          <div class="orbit-decoration" aria-hidden="true">
+            <canvas id="ring-canvas"></canvas>
+            <div class="orbit-copy">
+              <strong><b>5h</b>93%</strong>
+              <strong class="violet-value"><b>7d</b>73%</strong>
+              <span>剩余</span>
+            </div>
+          </div>
+          <p class="pretitle" aria-label="高颜值、极致轻量、本地优先">
+            <span class="pretitle-line" aria-hidden="true">
+              <span>高颜值</span><i>·</i><span>极致轻量</span><i>·</i><span>本地优先</span>
+            </span>
+          </p>
+          <h1 id="hero-title">你的 Codex，<br /><span>现在一目了然。</span></h1>
+          <p class="hero-lede">
+            高颜值的 macOS 原生用量面板，极致轻量地驻留在菜单栏。<br class="desktop-break" />
+            额度、Token、价值与今日任务，抬眼就能掌控。
+          </p>
+          <div class="hero-values" aria-label="CodexU 产品理念">
+            <span><i></i>原生体验</span>
+            <span><i></i>安静驻留</span>
+            <span><i></i>隐私不出本机</span>
+          </div>
+          <div class="hero-actions">
+            <a
+              class="button button-primary"
+              href="https://github.com/shanggqm/codexU/releases/latest"
+              target="_blank"
+              rel="noreferrer"
+            >
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0 4-4m-4 4-4-4M5 20h14" /></svg>
+              下载 macOS 版
+            </a>
+            <a
+              class="button button-secondary"
+              href="https://github.com/shanggqm/codexU"
+              target="_blank"
+              rel="noreferrer"
+            >
+              在 GitHub 查看
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m6 3 5 5-5 5" /></svg>
+            </a>
+          </div>
+          <p class="hero-note">适用于 macOS 14 及以上 · 同时支持 Apple Silicon 与 Intel</p>
+        </div>
+
+        <div class="hero-product" data-parallax="0.035">
+          <figure class="mac-window hero-window">
+            <div class="window-bar" aria-hidden="true">
+              <div class="traffic-lights"><i></i><i></i><i></i></div>
+              <span>codexU</span>
+              <div class="window-status"><i></i> 本地运行</div>
+            </div>
+            <div class="window-media">
+              <img
+                src="./assets/codexu/screenshot-overview.png"
+                alt="CodexU 主窗口与状态栏设置界面，展示双额度环、Token 汇总和今日任务"
+                width="2666"
+                height="1024"
+                fetchpriority="high"
+              />
+            </div>
+          </figure>
+          <div class="floating-chip chip-left" aria-hidden="true">
+            <span class="chip-icon blue"><svg viewBox="0 0 24 24"><path d="M12 3v9l6 3M5 20h14" /></svg></span>
+            <span><small>今日 Token</small><strong>444.9M</strong></span>
+          </div>
+          <div class="floating-chip chip-right" aria-hidden="true">
+            <span class="chip-icon violet"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7" /></svg></span>
+            <span><small>只在本机</small><strong>隐私优先</strong></span>
+          </div>
+        </div>
+
+        <div class="scroll-cue" aria-hidden="true"><span></span>向下探索</div>
+      </section>
+
+      <section class="intro section-pad" id="overview" aria-labelledby="intro-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow">不只是仪表盘</p>
+          <h2 id="intro-title">颜值是一种效率。<br />轻量是一种克制。</h2>
+          <p>CodexU 把复杂状态收进一眼可读的原生界面。需要时清晰出现，其余时间安静隐于菜单栏。</p>
+        </div>
+        <div class="metric-strip reveal" aria-label="CodexU 核心能力">
+          <div><strong>5h + 7d</strong><span>动态双额度环</span></div>
+          <div><strong>100%</strong><span>本地读取与聚合</span></div>
+          <div><strong>⌘ U</strong><span>轻量驻留，随时呼出</span></div>
+        </div>
+      </section>
+
+      <section class="story" id="features" aria-label="CodexU 功能展示">
+        <div class="story-sticky">
+          <div class="story-copy">
+            <article class="story-step is-active" data-step="0">
+              <p class="eyebrow">额度</p>
+              <h2>双环，一眼判断。</h2>
+              <p>5 小时与 7 天窗口始终保持同一语义。剩余多少、何时重置，无需心算。</p>
+              <div class="story-pills"><span>动态双环</span><span>重置倒计时</span></div>
+            </article>
+            <article class="story-step" data-step="1">
+              <p class="eyebrow">趋势</p>
+              <h2>用量变化，自然成形。</h2>
+              <p>从每日热力到七日趋势，用恰到好处的图表看清节奏，不淹没在原始日志里。</p>
+              <div class="story-pills"><span>半年热力</span><span>七日趋势</span></div>
+            </article>
+            <article class="story-step" data-step="2">
+              <p class="eyebrow">工作流</p>
+              <h2>今天做了什么，都有迹可循。</h2>
+              <p>进行中、待处理、定时与完成任务自动归位，让 Codex 的工作进度回到视野中心。</p>
+              <div class="story-pills"><span>任务聚合</span><span>项目排行</span></div>
+            </article>
+          </div>
+
+          <div class="story-visual reveal">
+            <div class="visual-glow" aria-hidden="true"></div>
+            <figure class="mac-window feature-window" data-tilt>
+              <div class="window-bar" aria-hidden="true">
+                <div class="traffic-lights"><i></i><i></i><i></i></div>
+                <span data-window-title>codexU · 额度概览</span>
+                <div class="window-status"><i></i> 已更新</div>
+              </div>
+              <div class="screenshot-stack">
+                <img class="is-active" data-screen="0" src="./assets/codexu/screenshot-overview.png" alt="CodexU 额度和今日任务概览" />
+                <img data-screen="1" src="./assets/codexu/screenshot-usage.png" alt="CodexU 用量趋势和 Token 热力图" loading="lazy" />
+                <img data-screen="2" src="./assets/codexu/screenshot-today.png" alt="CodexU 今日任务看板" loading="lazy" />
+              </div>
+            </figure>
+            <div class="screen-dots" aria-label="功能截图切换">
+              <button class="is-active" data-screen-button="0" aria-label="查看额度概览"></button>
+              <button data-screen-button="1" aria-label="查看用量趋势"></button>
+              <button data-screen-button="2" aria-label="查看今日任务"></button>
+            </div>
+          </div>
+        </div>
+        <div class="story-track" aria-hidden="true"><i data-track-progress></i></div>
+      </section>
+
+      <section class="value-section section-pad" id="value" aria-labelledby="value-title">
+        <div class="value-shell">
+          <div class="value-copy reveal">
+            <p class="eyebrow">CodexU 核心设计 · 羊毛进度</p>
+            <h2 id="value-title">把抽象的 Token，<br />变成看得懂的价值。</h2>
+            <p>
+              额度百分比只告诉你还剩多少，羊毛进度更进一步：按模型价格估算 API 等效价值，
+              让每个月的使用投入有一把直观的尺子。
+            </p>
+            <ul class="value-points">
+              <li><span></span>未缓存输入、缓存输入与输出分别估算</li>
+              <li><span></span>Plus、Pro 100、Pro 200 节点清晰可见</li>
+              <li><span></span>明确标注“估算”，不冒充官方账单</li>
+            </ul>
+          </div>
+
+          <div class="value-visual reveal">
+            <div class="value-aura" aria-hidden="true"></div>
+            <div class="wool-card">
+              <div class="wool-head">
+                <div>
+                  <span class="wool-icon" aria-hidden="true">
+                    <svg viewBox="0 0 24 24"><path d="M4 18h16M6 15l4-5 3 3 5-7" /><path d="M15 6h3v3" /></svg>
+                  </span>
+                  <span><small>本月羊毛进度</small><strong>API 等效价值 · 估算</strong></span>
+                </div>
+                <span class="estimate-pill">本地估算</span>
+              </div>
+              <div class="wool-value"><strong>$1,194</strong><span>/ $46.5K</span></div>
+              <div class="wool-track" aria-label="羊毛进度估算值 1194 美元，参考上限 46500 美元">
+                <b class="wool-fill"></b>
+                <i class="wool-spark spark-one"></i>
+                <i class="wool-spark spark-two"></i>
+                <i class="wool-spark spark-three"></i>
+                <span class="milestone plus"><i></i><em>Plus</em></span>
+                <span class="milestone pro100"><i></i><em>Pro 100</em></span>
+                <span class="milestone pro200"><i></i><em>Pro 200</em></span>
+              </div>
+              <div class="wool-foot"><span>本月已回收的 API 等效价值</span><strong>满额参考 $46.5K</strong></div>
+              <div class="wool-breakdown">
+                <span><i class="uncached"></i>未缓存输入 <strong>126.1M</strong></span>
+                <span><i class="cached"></i>缓存输入 <strong>1,960.7M</strong></span>
+                <span><i class="output"></i>输出 <strong>11.2M</strong></span>
+              </div>
+            </div>
+            <p class="value-caption">不是官方账单，也不是返现金额；它是一把诚实、直观的本地价值尺子。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="bento section-pad" aria-labelledby="bento-title">
+        <div class="section-heading reveal">
+          <p class="eyebrow">安静地强大</p>
+          <h2 id="bento-title">每一个细节，<br />都为高频使用而生。</h2>
+        </div>
+
+        <div class="bento-grid">
+          <article class="bento-card runtime-card reveal">
+            <div class="card-copy">
+              <span class="card-kicker">一个入口</span>
+              <h3>Codex 与 Claude Code，<br />在同一个视野里。</h3>
+              <p>自由切换 Runtime，不改变你的判断习惯。</p>
+            </div>
+            <div class="runtime-switch" aria-hidden="true">
+              <div class="runtime-option is-active"><img src="./assets/codexu/app-icon.png" alt="" />Codex</div>
+              <div class="runtime-option"><span class="claude-mark">C</span>Claude Code</div>
+              <span class="switch-thumb"></span>
+            </div>
+          </article>
+
+          <article class="bento-card menubar-card reveal">
+            <div class="card-copy">
+              <span class="card-kicker">抬眼即见</span>
+              <h3>不打开窗口，<br />也知道还剩多少。</h3>
+            </div>
+            <div class="menubar-demo" aria-hidden="true">
+              <span class="mini-cloud">〉_</span>
+              <span><small>5h</small><i><b style="--value: 93%"></b></i><strong>93%</strong></span>
+              <span><small>7d</small><i class="violet"><b style="--value: 73%"></b></i><strong>73%</strong></span>
+              <em>605.5M</em>
+            </div>
+          </article>
+
+          <article class="bento-card privacy-card reveal" id="privacy">
+            <canvas id="privacy-canvas" aria-hidden="true"></canvas>
+            <div class="privacy-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32"><path d="M8 14v-3a8 8 0 0 1 16 0v3M7 14h18v14H7z" /><path d="M16 19v4" /></svg>
+            </div>
+            <div class="card-copy">
+              <span class="card-kicker">隐私优先</span>
+              <h3>数据留在你的 Mac。</h3>
+              <p>直接读取本机 Codex 与 Claude Code 记录，不上传 usage、线程、路径或日志。</p>
+            </div>
+            <div class="local-status"><i></i> Local only</div>
+          </article>
+
+          <article class="bento-card native-card reveal">
+            <div class="card-copy">
+              <span class="card-kicker">为 macOS 而生</span>
+              <h3>看起来熟悉，<br />用起来更自然。</h3>
+              <p>系统字体、原生窗口、深浅模式与快捷键，一切都恰如其分。</p>
+            </div>
+            <div class="native-window" aria-hidden="true">
+              <div><i></i><i></i><i></i><span>外观</span></div>
+              <section><button>自动</button><button class="active">浅色</button><button>深色</button></section>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="final-cta section-pad" id="community" aria-labelledby="cta-title">
+        <div class="cta-orbit" aria-hidden="true"><span></span><span></span><i></i></div>
+        <img class="cta-icon reveal" src="./assets/codexu/app-icon.png" alt="CodexU 应用图标" width="148" height="148" />
+        <p class="eyebrow reveal">开源 · 免费 · 本地优先</p>
+        <h2 id="cta-title" class="reveal">让每一次 Codex 使用，<br />都心里有数。</h2>
+        <p class="reveal">下载 CodexU，把清晰的掌控感放进菜单栏。</p>
+        <div class="hero-actions reveal">
+          <a
+            class="button button-primary"
+            href="https://github.com/shanggqm/codexU/releases/latest"
+            target="_blank"
+            rel="noreferrer"
+          >
+            免费下载
+            <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M5.2 3.4h7.4v7.4M12.4 3.6 4 12" /></svg>
+          </a>
+        </div>
+        <div class="community-panel reveal" aria-label="关注公众号或加入用户群">
+          <article class="qr-card">
+            <div class="qr-image-wrap">
+              <img
+                src="./assets/codexu/official-account-qr.png"
+                alt="郭美青聊 AI 微信公众号二维码"
+                width="1502"
+                height="1494"
+                loading="lazy"
+              />
+            </div>
+            <div>
+              <span>公众号</span>
+              <h3>郭美青聊 AI</h3>
+              <p>关注 AI 工具、Codex 实践与独立产品构建。</p>
+            </div>
+          </article>
+          <article class="qr-card">
+            <div class="qr-image-wrap community-qr">
+              <img
+                src="./assets/codexu/community-qr.jpg"
+                alt="CodexU 用户交流群二维码"
+                width="1049"
+                height="1201"
+                loading="lazy"
+              />
+            </div>
+            <div>
+              <span>用户交流群</span>
+              <h3>和 CodexU 用户一起聊</h3>
+              <p>交流使用经验、反馈问题，也欢迎参与开源共建。</p>
+            </div>
+          </article>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <a class="brand" href="#top"><img src="./assets/codexu/app-icon.png" alt="" width="28" height="28" /><span>codexU</span></a>
+        <p>非官方的本地 macOS 工具，与 OpenAI 或 Anthropic 无隶属关系。</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/shanggqm/codexU" target="_blank" rel="noreferrer">GitHub</a>
+        <a href="https://github.com/shanggqm/codexU/releases/latest" target="_blank" rel="noreferrer">最新版本</a>
+        <a href="https://github.com/shanggqm/codexU/blob/main/LICENSE" target="_blank" rel="noreferrer">MIT License</a>
+      </div>
+    </footer>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

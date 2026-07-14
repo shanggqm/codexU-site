@@ -1,0 +1,10 @@
+{
+  "name": "codexu-landing-page",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "python3 -m http.server 4173",
+    "start": "python3 -m http.server 4173",
+    "build": "node -e \"const fs=require('fs'); for (const f of ['index.html','styles.css','script.js','assets/codexu/app-icon.png','assets/codexu/screenshot-overview.png']) if(!fs.existsSync(f)) throw new Error('Missing '+f); console.log('Static site ready for GitHub Pages')\""
+  }
+}
